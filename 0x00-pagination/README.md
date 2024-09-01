@@ -32,3 +32,19 @@ You can test the method using the provided `1-main.py` file:
 ```python
 ./1-main.py
 ```
+
+## Task 2: Hypermedia Pagination
+
+This task involves implementing a `get_hyper` method in the `Server` class to provide hypermedia information about the pagination of the dataset.
+
+**File:** `2-hypermedia_pagination.py`
+
+**Usage:**
+
+The `get_hyper` method returns a dictionary with metadata about the pagination state, including the current page, the size of the page, the total number of pages, and links to the next and previous pages.
+
+You can test the method using the provided `2-main.py` file:
+
+```python
+./2-main.py
+```
