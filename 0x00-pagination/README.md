@@ -48,3 +48,19 @@ You can test the method using the provided `2-main.py` file:
 ```python
 ./2-main.py
 ```
+
+## Task 3: Deletion-Resilient Hypermedia Pagination
+
+This task involves implementing a `get_hyper_index` method in the `Server` class to handle pagination in a deletion-resilient manner.
+
+**File:** `3-hypermedia_del_pagination.py`
+
+**Usage:**
+
+The `get_hyper_index` method returns a dictionary with metadata about the pagination state, including the current start index, the size of the page, and the next index to query. This method is resilient to deletions in the dataset, ensuring that no items are missed when navigating through pages.
+
+You can test the method using the provided `3-main.py` file:
+
+```python
+./3-main.py
+```
