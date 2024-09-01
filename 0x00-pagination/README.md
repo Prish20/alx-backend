@@ -16,3 +16,19 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     end_index = page * page_size
     return start_index, end_index
 ```
+
+## Task 1: Simple Pagination
+
+This task involves implementing a `get_page` method in the `Server` class to paginate a dataset of popular baby names stored in a CSV file.
+
+**File:** `1-simple_pagination.py`
+
+**Usage:**
+
+First, ensure the `Popular_Baby_Names.csv` file is in the same directory as the script. The dataset will be loaded and paginated based on the `page` and `page_size` parameters.
+
+You can test the method using the provided `1-main.py` file:
+
+```python
+./1-main.py
+```
