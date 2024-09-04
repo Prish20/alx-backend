@@ -84,3 +84,45 @@ my_cache.print_cache()
 my_cache.put("F", "Mission")  # This should discard the next item ("B")
 my_cache.print_cache()
 ```
+
+## 0x01. Caching - Task 2: LIFO Caching
+
+### Description: Task 2: LIFO Caching
+
+In this task, we implemented a `LIFOCache` class that inherits from `BaseCaching`. This class uses a Last-In-First-Out (LIFO) caching policy, meaning that when the cache reaches its limit, the most recent item (last inserted) is discarded.
+
+**`Methods`**:
+
+1. **put(key, item)**:
+   - Adds an item to the cache.
+   - If the cache exceeds the `MAX_ITEMS` limit, the last item added is removed (LIFO algorithm).
+   - Prints `DISCARD: <key>` when an item is removed.
+
+2. **get(key)**:
+   - Retrieves an item from the cache by key.
+   - If the key is `None` or does not exist in the cache, it returns `None`.
+
+**`Files`**:
+
+- **`2-lifo_cache.py`**: Contains the implementation of the `LIFOCache` class.
+- **`base_caching.py`**: The base class `BaseCaching`, which provides the structure for the caching system.
+- **`2-main.py`**: A script that tests the `LIFOCache` class.
+
+**`Example Usage`**:
+
+```python
+LIFOCache = __import__('2-lifo_cache').LIFOCache
+
+my_cache = LIFOCache()
+my_cache.put("A", "Hello")
+my_cache.put("B", "World")
+my_cache.put("C", "Holberton")
+my_cache.put("D", "School")
+my_cache.print_cache()
+my_cache.put("E", "Battery")  # This should discard the last item ("D")
+my_cache.print_cache()
+my_cache.put("C", "Street")
+my_cache.print_cache()
+my_cache.put("F", "Mission")  # This should discard the last item ("C")
+my_cache.print_cache()
+```
