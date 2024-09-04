@@ -15,14 +15,18 @@ class LIFOCache(BaseCaching):
     def put(self, key, item):
         """ Add an item to the cache using LIFO policy """
         if key is not None and item is not None:
+            # Update the cache
             self.cache_data[key] = item
-            self.last_item = key
 
+            # If cache exceeds the maximum number of items
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                # Remove the last inserted item (LIFO)
-                del self.cache_data[self.last_item]
-                print(f"DISCARD: {self.last_item}")
-                self.last_item = key  # Update the last inserted item
+                # Discard the most recently added item (LIFO)
+                if self.last_item in self.cache_data:
+                    del self.cache_data[self.last_item]
+                    print(f"DISCARD: {self.last_item}")
+
+            # Update the last inserted item after the possible discard
+            self.last_item = key
 
     def get(self, key):
         """ Get an item by key from the cache """
