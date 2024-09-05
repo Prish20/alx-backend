@@ -208,3 +208,42 @@ my_cache.print_cache()
 my_cache.put("C", "Street")  # Updating C should mark it as the most recently used
 my_cache.print_cache()
 ```
+
+## 0x01. Caching - Task 5: LFU Caching (Advanced)
+
+### Description: Task 5: LFU Caching
+
+In this task, we implemented an `LFUCache` class that inherits from `BaseCaching`. This class uses a Least Frequently Used (LFU) caching policy, meaning that when the cache reaches its limit, the least frequently accessed item is discarded. If multiple items have the same frequency, the Least Recently Used (LRU) algorithm is used to decide which item to discard.
+
+**`Methods`**:
+
+1. **put(key, item)**:
+   - Adds an item to the cache.
+   - If the cache exceeds the `MAX_ITEMS` limit, the least frequently used item is removed (LFU algorithm). If multiple items have the same frequency, LRU is used to break the tie.
+   - Prints `DISCARD: <key>` when an item is removed.
+  
+2. **get(key)**:
+   - Retrieves an item from the cache by key and increments its access frequency.
+   - If the key is `None` or does not exist in the cache, it returns `None`.
+
+**`Files`:
+
+- **`100-lfu_cache.py`**: Contains the implementation of the `LFUCache` class.
+- **`base_caching.py`**: The base class `BaseCaching`, which provides the structure for the caching system.
+- **`100-main.py`**: A script that tests the `LFUCache` class.
+
+**`Example Usage`**:
+
+```python
+LFUCache = __import__('100-lfu_cache').LFUCache
+
+my_cache = LFUCache()
+my_cache.put("A", "Hello")
+my_cache.put("B", "World")
+my_cache.put("C", "Holberton")
+my_cache.put("D", "School")
+my_cache.print_cache()
+print(my_cache.get("B"))  # Accessing B should increase its frequency
+my_cache.put("E", "Battery")  # This should discard A (least frequently used)
+my_cache.print_cache()
+```
