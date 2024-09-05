@@ -126,3 +126,44 @@ my_cache.print_cache()
 my_cache.put("F", "Mission")  # This should discard the last item ("C")
 my_cache.print_cache()
 ```
+
+## 0x01. Caching - Task 3: LRU Caching
+
+### Description: Task 3: LRU Caching
+
+In this task, we implemented an `LRUCache` class that inherits from `BaseCaching`. This class uses a Least Recently Used (LRU) caching policy, meaning that when the cache reaches its limit, the least recently accessed item is discarded.
+
+**`Methods`**:
+
+1. **put(key, item)**:
+   - Adds an item to the cache.
+   - If the cache exceeds the `MAX_ITEMS` limit, the least recently used item is removed (LRU algorithm).
+   - Prints `DISCARD: <key>` when an item is removed.
+
+2. **get(key)**:
+   - Retrieves an item from the cache by key and marks it as recently used.
+   - If the key is `None` or does not exist in the cache, it returns `None`.
+
+**`Files`**:
+
+- **`3-lru_cache.py`**: Contains the implementation of the `LRUCache` class.
+- **`base_caching.py`**: The base class `BaseCaching`, which provides the structure for the caching system.
+- **`3-main.py`**: A script that tests the `LRUCache` class.
+
+**`Example Usage`**:
+
+```python
+LRUCache = __import__('3-lru_cache').LRUCache
+
+my_cache = LRUCache()
+my_cache.put("A", "Hello")
+my_cache.put("B", "World")
+my_cache.put("C", "Holberton")
+my_cache.put("D", "School")
+my_cache.print_cache()
+print(my_cache.get("B"))  # Accessing B should make it recently used
+my_cache.put("E", "Battery")  # This should discard A (least recently used)
+my_cache.print_cache()
+my_cache.put("C", "Street")  # C is accessed, so no discarding yet
+my_cache.print_cache()
+```
