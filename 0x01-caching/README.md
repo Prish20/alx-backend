@@ -167,3 +167,44 @@ my_cache.print_cache()
 my_cache.put("C", "Street")  # C is accessed, so no discarding yet
 my_cache.print_cache()
 ```
+
+## 0x01. Caching - Task 4: MRU Caching
+
+### Description: Task 4: MRU Caching
+
+In this task, we implemented an `MRUCache` class that inherits from `BaseCaching`. This class uses a Most Recently Used (MRU) caching policy, meaning that when the cache reaches its limit, the most recently accessed or added item is discarded.
+
+**`Methods`**:
+
+1. **put(key, item)**:
+   - Adds an item to the cache.
+   - If the cache exceeds the `MAX_ITEMS` limit, the most recently used item is removed (MRU algorithm).
+   - Prints `DISCARD: <key>` when an item is removed.
+  
+2. **get(key)**:
+   - Retrieves an item from the cache by key and marks it as the most recently used.
+   - If the key is `None` or does not exist in the cache, it returns `None`.
+
+**`Files`**:
+
+- **`4-mru_cache.py`**: Contains the implementation of the `MRUCache` class.
+- **`base_caching.py`**: The base class `BaseCaching`, which provides the structure for the caching system.
+- **`4-main.py`**: A script that tests the `MRUCache` class.
+
+**`Example Usage`**:
+
+```python
+MRUCache = __import__('4-mru_cache').MRUCache
+
+my_cache = MRUCache()
+my_cache.put("A", "Hello")
+my_cache.put("B", "World")
+my_cache.put("C", "Holberton")
+my_cache.put("D", "School")
+my_cache.print_cache()
+print(my_cache.get("B"))  # Accessing B should make it the most recently used
+my_cache.put("E", "Battery")  # This should discard B (most recently used)
+my_cache.print_cache()
+my_cache.put("C", "Street")  # Updating C should mark it as the most recently used
+my_cache.print_cache()
+```
