@@ -49,3 +49,25 @@ Create a `get_locale` function using the `babel.localeselector` decorator to det
   ```bash
     python3 2-app.py
   ```
+
+## Task 3: Parametrize Templates
+
+**`Objective`**:
+Use Flask-Babel's `_()` function to parametrize your templates with message IDs (`home_title`, `home_header`). Set up a translation configuration using `babel.cfg` and extract, initialize, and compile translations.
+
+**`Instructions`**:
+
+- `3-app.py`: Flask app with Babel and template translation using message IDs.
+- `templates/3-index.html`: HTML template that displays translated titles based on the locale.
+- `babel.cfg`: Configuration file to specify where to extract translations from.
+- `translations/en/LC_MESSAGES/messages.po`: English translations.
+- `translations/fr/LC_MESSAGES/messages.po`: French translations.
+
+**Steps**:
+
+1. Create the `babel.cfg` file.
+2. Extract translations using:
+
+  ```bash
+    python3 3-app.py extract
+  ```
