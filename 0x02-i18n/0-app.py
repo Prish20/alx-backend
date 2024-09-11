@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
+"""A simple flask app
 """
-This module creates a basic Flask app
-that serves an HTML page with a welcome title and header.
-"""
+
 
 from flask import Flask, render_template
 
@@ -10,15 +9,11 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index() -> str:
-    """
-    Renders the index page.
-
-    Returns:
-        str: The rendered HTML template for the index page.
+def hello_world():
+    """_summary_
     """
     return render_template('0-index.html')
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+if __name__ == '__main__':
+    app.run(port="5000", host="0.0.0.0", debug=True)

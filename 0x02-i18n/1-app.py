@@ -1,39 +1,35 @@
 #!/usr/bin/env python3
+"""A simple flask app
 """
-This module creates a Flask app with Babel setup for internationalization.
-"""
+
 
 from flask import Flask, render_template
 from flask_babel import Babel
 
 
-class Config:
+class Config(object):
+    """_summary_
+
+    Returns:
+            _type_: _description_
     """
-    Configuration class for Flask app.
-    Defines available languages and sets default locale and timezone.
-    """
-    LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+    LANGUAGES = ['en', 'fr']
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+# configure the flask app
 app = Flask(__name__)
 app.config.from_object(Config)
-
-# Instantiate Babel
 babel = Babel(app)
 
 
 @app.route('/')
-def index() -> str:
-    """
-    Renders the index page.
-
-    Returns:
-        str: The rendered HTML template for the index page.
+def index():
+    """_summary_
     """
     return render_template('1-index.html')
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+if __name__ == '__main__':
+    app.run(port="5000", host="0.0.0.0", debug=True)
