@@ -89,3 +89,24 @@ Allow users to force a specific locale by passing the `locale` parameter in the 
    ```python3
    python3 4-app.py
    ```
+
+## Task 5: Mock Logging In
+
+### Objective
+
+Simulate a user login system by passing a `login_as` parameter in the URL. Display a personalized welcome message if a user is logged in.
+
+**`Instructions`**:
+
+- `5-app.py`: Flask app with a mocked user login system.
+- `templates/5-index.html`: HTML template displaying the login message.
+- `translations/en/LC_MESSAGES/messages.po`: English translations.
+- `translations/fr/LC_MESSAGES/messages.po`: French translations.
+
+**Steps**:
+
+1. Run the Flask app using:
+
+   ```python3
+   python3 5-app.py
+   ```
