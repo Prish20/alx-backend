@@ -136,3 +136,25 @@ Update the `get_locale()` function to use the user's preferred locale if they ar
    ```bash
    python3 6-app.py
    ```
+
+## Task 7: Infer Appropriate Time Zone
+
+**`Objective`**:
+Define a `get_timezone()` function that selects the time zone based on the following order of priority:
+
+1. Time zone from URL parameters.
+2. Time zone from the user's settings.
+3. Default to `UTC`.
+
+**`Instructions`**:
+
+- `7-app.py`: Flask app that infers the user's time zone.
+- `templates/7-index.html`: HTML template displaying the current time zone and login message.
+
+**Steps**:
+
+1. Run the Flask app using:
+
+   ```bash
+   python3 7-app.py
+   ```
