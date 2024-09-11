@@ -1,53 +1,45 @@
 #!/usr/bin/env python3
 """
-This module creates a Flask app with
-Babel setup and locale selection from request.
+A Basic flask application
 """
-
-from flask import Flask, render_template, request
+from flask import Flask
+from flask import request
+from flask import render_template
 from flask_babel import Babel
 
 
-class Config:
+class Config(object):
     """
-    Configuration class for Flask app.
-    Defines available languages and sets default locale and timezone.
+    Application configuration class
     """
-    LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+    LANGUAGES = ['en', 'fr']
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+# Instantiate the application object
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Instantiate Babel
+# Wrap the application with Babel
 babel = Babel(app)
 
 
 @babel.localeselector
 def get_locale() -> str:
     """
-    Selects the best match for the
-    language from the request's Accept-Language headers.
-
-    Returns:
-        str: The best match for the supported languages.
+    Gets locale from request object
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def index() -> str:
     """
-    Renders the index page and passes the selected locale to the template.
-
-    Returns:
-        str: The rendered HTML template for the index page.
+    Renders a basic html template
     """
-    locale = get_locale()
-    return render_template('2-index.html', locale=locale)
+    return render_template('2-index.html')
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+if __name__ == '__main__':
+    app.run()
