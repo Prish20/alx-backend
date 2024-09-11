@@ -110,3 +110,29 @@ Simulate a user login system by passing a `login_as` parameter in the URL. Displ
    ```python3
    python3 5-app.py
    ```
+
+## Task 6: Use User Locale
+
+**`Objective`**:
+
+Update the `get_locale()` function to use the user's preferred locale if they are logged in and if it is supported. The order of priority is:
+
+1. Locale from URL parameters.
+2. Locale from user settings.
+3. Locale from the `Accept-Language` request header.
+4. Default locale.
+
+**`Instructions`**:
+
+- `6-app.py`: Flask app that uses the user's preferred locale.
+- `templates/6-index.html`: HTML template displaying the login message and title based on the locale.
+- `translations/en/LC_MESSAGES/messages.po`: English translations.
+- `translations/fr/LC_MESSAGES/messages.po`: French translations.
+
+**Steps**:
+
+1. Run the Flask app using:
+
+   ```bash
+   python3 6-app.py
+   ```
