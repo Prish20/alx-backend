@@ -71,3 +71,21 @@ Use Flask-Babel's `_()` function to parametrize your templates with message IDs 
   ```bash
     python3 3-app.py extract
   ```
+
+## Task 4: Force Locale with URL Parameter
+
+**`Objective`**:
+Allow users to force a specific locale by passing the `locale` parameter in the URL. If the `locale` parameter is valid, it will be used. If not, the app will fall back to the default locale selection.
+
+**`Instructions`**:
+
+- `4-app.py`: Flask app that allows forcing the locale via URL parameters.
+- `templates/4-index.html`: HTML template with language selection based on the locale.
+
+**Steps**:
+
+1. Run the Flask app using the following command:
+
+   ```python3
+   python3 4-app.py
+   ```
