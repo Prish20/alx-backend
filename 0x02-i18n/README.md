@@ -17,3 +17,17 @@ Create a simple Flask application that serves a basic HTML page with a welcome t
   ```bash
     python3 0-app.py
   ```
+
+## Task 1: Basic Babel Setup
+
+**`Objective`**:
+Set up the Flask-Babel extension to add support for internationalization. Define a `Config` class with available languages (`"en"` and `"fr"`), and set the default locale to `"en"` and timezone to `"UTC"`.
+
+**`Instructions`**:
+
+- `1-app.py`: The Flask app with a single route `/` that renders the `1-index.html` template.
+- Flask-Babel installed using:
+
+```bash
+pip3 install flask_babel==2.0.0
+```
