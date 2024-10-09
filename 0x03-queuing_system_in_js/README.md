@@ -78,3 +78,59 @@ Reply: OK
 100
 ```
 
+## Task 4: Node Redis Client and Advanced Operations
+
+This task involves using the Redis client to store and retrieve a hash value.
+
+### Script: `4-redis_advanced_op.js`
+
+#### Steps
+
+1. **Create a Redis Client**: Connect to the Redis server and set up event listeners for `connect` and `error` events.
+
+2. **Store the Hash**:
+   - Use the `hset` command to store the following field-value pairs in the hash `HolbertonSchools`:
+     - `Portland`: `50`
+     - `Seattle`: `80`
+     - `New York`: `20`
+     - `Bogota`: `20`
+     - `Cali`: `40`
+     - `Paris`: `2`
+   - Use `redis.print` as the callback for each `hset` to display confirmation messages.
+
+3. **Retrieve and Display the Hash**:
+   - Use the `hgetall` command to retrieve the hash `HolbertonSchools`.
+   - Display the retrieved hash object to the console.
+
+#### Run the script:
+```bash
+npm run dev 4-redis_advanced_op.js
+```
+### Output:
+
+```
+[nodemon] 2.0.22
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `babel-node --presets @babel/preset-env 4-redis_advanced_op.js`
+
+Redis client connected to the server
+Reply: 1
+Reply: 1
+Reply: 1
+Reply: 1
+Reply: 1
+Reply: 1
+
+{
+  Portland: '50',
+  Seattle: '80',
+  'New York': '20',
+  Bogota: '20',
+  Cali: '40',
+  Paris: '2'
+}
+```
+
+
