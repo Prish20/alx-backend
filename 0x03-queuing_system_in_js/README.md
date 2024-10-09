@@ -14,3 +14,16 @@ This task involves installing Redis version 6.0.10, starting the server, setting
    cd redis-6.0.10
    make
    ```
+
+
+## Task 1: Node Redis Client
+
+This task involves creating a Node.js script that connects to a Redis server and logs messages based on the connection status.
+
+### Install Redis Client Library
+
+Ensure you are in the project directory (`0x03-queuing_system_in_js`) and run:
+
+```bash
+npm install redis@^2.8.0
+```
