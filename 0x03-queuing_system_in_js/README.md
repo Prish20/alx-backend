@@ -220,6 +220,54 @@ In this task, we create a job creator script using Kue that adds a job to a queu
   Notification job created: 1
 ```
 
+# Task 7: Create the Job Processor
+
+In this task, we create a job processor that processes jobs from the `push_notification_code` queue.
+
+## `6-job_processor.js`
+
+### Description
+
+- **Queue Creation**: Initializes a Kue queue to process jobs.
+- **Function `sendNotification`**:
+  - Accepts `phoneNumber` and `message` as arguments.
+  - Logs: `Sending notification to PHONE_NUMBER, with message: MESSAGE`.
+- **Job Processing**:
+  - Listens for jobs in the `push_notification_code` queue.
+  - For each job, extracts `phoneNumber` and `message` from `job.data`.
+  - Calls `sendNotification` with the extracted data.
+  - Calls `done()` to mark the job as completed.
+
+### How to run:
+
+#### Terminal 1:
+```bash
+npm run dev 6-job_creator.js
+```
+
+#### Terminal 2:
+
+```bash
+npm run dev 6-job_creator.js
+```
+
+### Expected Output
+
+#### Terminal 1:
+
+```bash
+  Notification job created: 2
+  Notification job completed
+```
+
+#### Terminal 2:
+
+```bash
+Sending notification to 4153518780, with message: This is the code to verify your account
+
+Sending notification to 4153518780, with message: This is the code to verify your account
+```
+
 
 
 
