@@ -54,3 +54,27 @@ School
 Reply: OK
 100
 ```
+## Task 3: Node Redis Client and Async Operations
+
+This task involves modifying the Redis client to use `async/await` with promisified functions.
+
+### Script: `2-redis_op_async.js`
+
+#### Changes from Previous Task
+
+- Imported `promisify` from the `util` module.
+- Promisified the `client.get` method to work with promises.
+- Modified `displaySchoolValue` to be an `async` function using `await`.
+
+### Code
+```bash
+npm run dev 2-redis_op_async.js
+```
+### OutPut
+```
+Redis client connected to the server
+School
+Reply: OK
+100
+```
+
