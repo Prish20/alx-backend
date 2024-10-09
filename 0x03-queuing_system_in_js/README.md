@@ -268,6 +268,49 @@ Sending notification to 4153518780, with message: This is the code to verify you
 Sending notification to 4153518780, with message: This is the code to verify your account
 ```
 
+# Task 8: Track Progress and Errors with Kue - Create the Job Creator
+
+In this task, we create a job creator script that adds multiple jobs to a queue and tracks their progress and errors.
+
+## `7-job_creator.js`
+
+### Description
+
+- **Jobs Array**: Contains multiple job data objects, each with a `phoneNumber` and `message`.
+- **Queue Creation**: Initializes a Kue queue to manage jobs.
+- **Job Creation Loop**:
+  - Loops over each job in the `jobs` array.
+  - Creates a new job in the `push_notification_code_2` queue.
+  - Saves the job and logs:
+    - `Notification job created: JOB_ID` if successful.
+    - `Notification job failed to create: ERROR` if there's an error.
+  - Attaches event listeners to each job:
+    - **`complete`**: Logs when the job is completed.
+    - **`failed`**: Logs when the job fails, including the error message.
+    - **`progress`**: Logs the job's progress percentage.
+
+### How to run:
+
+```bash
+  npm run dev 7-job_creator.js
+```
+
+#### Expected Output
+
+```bash
+Notification job created: 3
+Notification job created: 4
+Notification job created: 5
+Notification job created: 6
+Notification job created: 7
+Notification job created: 8
+Notification job created: 9
+Notification job created: 10
+Notification job created: 11
+Notification job created: 12
+Notification job created: 13
+```
+
 
 
 
