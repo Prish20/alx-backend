@@ -27,3 +27,30 @@ Ensure you are in the project directory (`0x03-queuing_system_in_js`) and run:
 ```bash
 npm install redis@^2.8.0
 ```
+## Task 2: Node Redis Client and Basic Operations
+
+This task involves extending the Redis client script to perform basic Redis operations such as setting and getting key-value pairs.
+
+### Script: `1-redis_op.js`
+
+#### Functions
+
+- **`setNewSchool(schoolName, value)`**
+  - Sets a key-value pair in Redis.
+  - Displays a confirmation message using `redis.print`.
+
+- **`displaySchoolValue(schoolName)`**
+  - Retrieves the value of a key from Redis.
+  - Logs the value to the console.
+
+#### Code
+```bash
+npm run dev 1-redis_op.js
+```
+### OutPut
+```
+Redis client connected to the server
+School
+Reply: OK
+100
+```
