@@ -177,8 +177,8 @@ This task involves creating a simple Redis-based publisher and subscriber system
   Terminal 1:
   ```bash
   Redis client connected to the server
-Holberton Student
-Holberton Student
+Holberton Student #1 starts course
+Holberton Student #2 starts course
 KILL_SERVER
 [nodemon] clean exit - waiting for changes before restart
 ```
@@ -186,10 +186,38 @@ Terminal 2:
 
 ```bash
 Redis client connected to the server
-About to send Holberton Student
-About to send Holberton Student
+About to send Holberton Student #1 starts course
+About to send Holberton Student #2 starts course
 About to send KILL_SERVER
-About to send Holberton Student
+About to send Holberton Student #3 starts course
+```
+
+## Task 6: Create the Job Creator
+
+In this task, we create a job creator script using Kue that adds a job to a queue named `push_notification_code`.
+
+### File: `6-job_creator.js`
+
+#### Description
+
+- **Queue Creation**: Initializes a Kue queue to manage jobs.
+- **Job Data**: Contains the phone number and message for the notification.
+- **Job Creation**: Adds a job to the `push_notification_code` queue.
+- **Event Handlers**:
+  - Logs when the job is created successfully.
+  - Logs when the job is completed.
+  - Logs when the job fails.
+
+#### How to run:
+
+```bash
+  npm run dev 6-job_creator.js
+```
+
+#### Expected OutPut:
+
+```bash
+  Notification job created: 1
 ```
 
 
