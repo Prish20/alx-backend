@@ -133,4 +133,66 @@ Reply: 1
 }
 ```
 
+## Task 5: Node Redis Client Publisher and Subscriber
+
+This task involves creating a simple Redis-based publisher and subscriber system.
+
+### Files:
+
+- `5-subscriber.js`
+- `5-publisher.js`
+
+### `5-subscriber.js`
+
+- **Description**: A Redis subscriber client that listens to messages on the channel `holberton school channel`.
+- **Functionality**:
+  - Connects to the Redis server.
+  - Subscribes to `holberton school channel`.
+  - Logs messages received on the channel.
+  - If the message is `'KILL_SERVER'`, it unsubscribes and exits.
+
+### `5-publisher.js`
+
+- **Description**: A Redis publisher client that sends messages to the channel `holberton school channel` after specified delays.
+- **Functionality**:
+  - Connects to the Redis server.
+  - Implements `publishMessage(message, time)` to send messages after a delay.
+  - Calls `publishMessage` with various messages and delays.
+
+### How to Run
+
+**Open Two Terminals:**
+  ### Terminal 1: Run the subscriber script:
+  ```bash
+    npm run dev 5-subscriber.js
+  ```
+
+  ### Terminal 2: Run the publisher script:
+
+  ```bash
+  npm run dev 5-subscriber.js
+  ```
+
+### Expected OutPut
+  Terminal 1:
+  ```bash
+  Redis client connected to the server
+Holberton Student
+Holberton Student
+KILL_SERVER
+[nodemon] clean exit - waiting for changes before restart
+```
+Terminal 2:
+
+```bash
+Redis client connected to the server
+About to send Holberton Student
+About to send Holberton Student
+About to send KILL_SERVER
+About to send Holberton Student
+```
+
+
+
+
 
