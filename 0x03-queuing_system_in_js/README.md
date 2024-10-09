@@ -311,6 +311,112 @@ Notification job created: 12
 Notification job created: 13
 ```
 
+# Task 9: Track Progress and Errors with Kue - Create the Job Processor
+
+In this task, we create a job processor that processes jobs from the `push_notification_code_2 queue`, handles blacklisted phone numbers, and tracks job progress and errors.
+
+### Description
+- Blacklisted Numbers: An array containing phone numbers that are blacklisted.
+
+  ```javascript
+  const blacklistedNumbers = ['4153518780', 
+  '4153518781'];
+  ```
+- Function `sendNotification`:
+
+- Accepts `phoneNumber`, `message`, `job`, and done as arguments.
+- Tracks the job progress starting from `0%`.
+- Checks if the phoneNumber is blacklisted:
+- If yes, fails the job with an `Error` message.
+- If no:
+    - Updates job progress to `50%`.
+    - Logs: Sending notification to `PHONE_NUMBER`, with message: `MESSAGE`.
+    - Completes the job.
+- Queue Processing:
+
+    - Processes jobs from the `push_notification_code_2` queue with a concurrency of 2.
+    - For each job, calls `sendNotification` with the job data.
+
+### How to run
+#### Terminal 1
+```bash
+npm run dev 7-job_creator.js
+```
+#### Terminal 2
+
+```bash
+npm run dev 6-job_processor.js
+```
+
+### Expected OutPut
+#### Terminal 1
+```bash
+Notification job created: 14
+Notification job created: 15
+Notification job created: 16
+Notification job created: 17
+Notification job created: 18
+Notification job created: 19
+Notification job created: 20
+Notification job created: 21
+Notification job created: 22
+Notification job created: 23
+Notification job created: 24
+Notification job 14 0% complete
+Notification job 14 failed: Phone number 4153518780 is blacklisted
+Notification job 15 0% complete
+Notification job 16 0% complete
+Notification job 16 50% complete
+Notification job 15 failed: Phone number 4153518781 is blacklisted
+Notification job 16 completed
+Notification job 17 0% complete
+Notification job 17 50% complete
+Notification job 18 0% complete
+Notification job 18 50% complete
+Notification job 17 completed
+Notification job 18 completed
+Notification job 19 0% complete
+Notification job 19 50% complete
+Notification job 20 0% complete
+Notification job 20 50% complete
+Notification job 19 completed
+Notification job 20 completed
+Notification job 21 0% complete
+Notification job 21 50% complete
+Notification job 22 0% complete
+Notification job 22 50% complete
+Notification job 21 completed
+Notification job 22 completed
+Notification job 23 0% complete
+Notification job 23 50% complete
+Notification job 24 0% complete
+Notification job 24 50% complete
+Notification job 23 completed
+Notification job 24 completed
+```
+
+#### Terminal 2
+
+```bash
+Sending notification to 4153518743, with message: This is the code 4321 to verify your account
+Sending notification to 4153538781, with message: This is the code 4562 to verify your account
+Sending notification to 4153118782, with message: This is the code 4321 to verify your account
+Sending notification to 4153718781, with message: This is the code 4562 to verify your account
+Sending notification to 4159518782, with message: This is the code 4321 to verify your account
+Sending notification to 4158718781, with message: This is the code 4562 to verify your account
+Sending notification to 4153818782, with message: This is the code 4321 to verify your account
+Sending notification to 4154318781, with message: This is the code 4562 to verify your account
+Sending notification to 4151218782, with message: This is the code 4321 to verify your account
+Sending notification to 4153518743, with message: This is the code 4321 to verify your account
+Sending notification to 4153538781, with message: This is the code 4562 to verify your account
+Sending notification to 4153118782, with message: This is the code 4321 to verify your account
+Sending notification to 4153718781, with message: This is the code 4562 to verify your account
+Sending notification to 4159518782, with message: This is the code 4321 to verify your account
+Sending notification to 4158718781, with message: This is the code 4562 to verify your account
+Sending notification to 4153818782, with message: This is the code 4321 to verify your account
+Sending notification to 4154318781, with message: This is the code 4562 to verify your account
+Sending notification to 4151218782, with message: This is the code 4321 to verify your account
+```
 
 
 
