@@ -418,6 +418,35 @@ Sending notification to 4154318781, with message: This is the code 4562 to verif
 Sending notification to 4151218782, with message: This is the code 4321 to verify your account
 ```
 
+# Task 10: Writing the Job Creation Function
+
+In this task, we implement a function `createPushNotificationsJobs` that adds jobs to a Kue queue and handles job events.
+
+## `8-job.js`
+
+### Description
+
+- **Function `createPushNotificationsJobs(jobs, queue)`**:
+  - **Parameters**:
+    - `jobs`: an array of job data objects.
+    - `queue`: a Kue queue instance.
+  - **Behavior**:
+    - Validates that `jobs` is an array. If not, throws an `Error` with the message `Jobs is not an array`.
+    - Iterates over the `jobs` array and adds each job to the queue `push_notification_code_3`.
+    - Attaches event listeners to each job to handle `complete`, `failed`, and `progress` events.
+
+### How to run
+
+```bash
+npm run dev 8-job-main.js
+```
+
+#### Expected Output
+
+```
+Notification job created: 25
+```
+
 
 
 
